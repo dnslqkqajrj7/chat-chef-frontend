@@ -5,6 +5,13 @@ const InfoInput = ({ content }) => {
   // logic
   const { label, text } = content;
 
+  // content
+  // const content = [
+  //   id:1,
+  //   label: '',
+  //   text:''
+  // ]
+
   const onRemove = () => {
     console.log("재료 삭제하기");
   };
