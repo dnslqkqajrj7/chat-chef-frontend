@@ -7,7 +7,7 @@ import Title from "../components/Title";
 import { useNavigate } from "react-router-dom";
 
 
-const Info = () => {
+const Info = ({sendIngredientList}) => {
   // logic
   const history = useNavigate();
   // TODO: set함수 추가하기
@@ -27,10 +27,24 @@ const Info = () => {
   };
 
   const handleNext = () => {
-  //  console.log("chat페이지로 이동");
-  //TODO: 최소 재료 한개이상 유효성 체크
-    history('chat')
-  };
+    //  console.log("chat페이지로 이동");
+    //TODO: 최소 재료 한개이상 유효성 체크
+    //입력값이 있는 배열
+  const filterDataList = ingredientList.filter((item) => item.value !== "");
+  console.log('', filterDataList);
+  if(filterDataList.length > 0) {
+    //재료 입력값이 있는 경우
+
+    //데이터 부모에게 전송
+    sendIngredientList(ingredientList.map((item) => ({...item, value: item.value.trim()}) ))
+      history('/chat')
+      return;
+    };
+
+    //재료 값이 없는 경우
+    alert("재료를 최소 1개이상 입력해주세요");
+  }
+
   const handleRemove = (id) => {
     console.log('~ id', id)
     setingredientList((prev) => prev.filter((item) => item.id !== id))
