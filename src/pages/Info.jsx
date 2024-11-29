@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PrevButton from "../components/PrevButton";
 import InfoInput from "../components/InfoInput";
 import AddButton from "../components/AddButton";
@@ -69,11 +69,6 @@ const Info = ({sendIngredientList}) => {
   //     name: "sudal",
   //   },
   // ];
-
-useEffect(() => {
-  //실행로직
-  console.log('Info~ ingredientList', ingredientList)
-}, [ingredientList])
 
 
   // view
